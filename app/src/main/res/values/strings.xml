@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">xWanAndroid</string>
+    <string name="home">首页</string>
+    <string name="square">广场</string>
+    <string name="system">体系</string>
+    <string name="my">我</string>
+</resources>
