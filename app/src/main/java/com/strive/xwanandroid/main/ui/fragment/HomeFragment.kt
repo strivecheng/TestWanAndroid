@@ -91,8 +91,13 @@ class HomeFragment : BaseFragment() {
             val result = homeListAsync?.await()
             val datas = result?.data?.datas
             homeAdapter.setNewData(datas)
-            Log.i(TAG, result.toString())
+        }
 
+        coroutineScope.launch {
+            withContext(Dispatchers.IO){
+                var homeBanner = HttpClient.retrofitService.getHomeBanner()
+                homeBanner
+            }
         }
     }
 

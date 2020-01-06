@@ -1,11 +1,10 @@
 package com.strive.xwanandroid.common
 
-import android.util.Log
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.strive.xwanandroid.common.global.Constants
 import com.strive.xwanandroid.common.http.ApiService
+import com.strive.xwanandroid.common.utils.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -45,10 +44,12 @@ object HttpClient {
             .writeTimeout(
                 10L,
                 TimeUnit.SECONDS
-            ).addInterceptor (
-                HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                }
+            ).addInterceptor(
+                HttpLoggingInterceptor(
+                    "wanAndroid",
+                    true
+                ).setLevel(HttpLoggingInterceptor.Level.BODY)
+
             )
             .build()
 

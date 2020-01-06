@@ -56,5 +56,9 @@ dependencies {
 
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"
 
+    //工具类
+    implementation 'com.blankj:utilcode:1.24.7'
+
+    implementation 'com.github.zhpanvip:BannerViewPager:2.5.1'
 
 }
