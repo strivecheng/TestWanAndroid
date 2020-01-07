@@ -2,18 +2,26 @@ package com.strive.xwanandroid.main.ui.fragment
 
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.HttpClient
 import com.strive.xwanandroid.common.base.BaseFragment
 import com.strive.xwanandroid.common.bean.ArticleInfo
+import com.strive.xwanandroid.common.bean.BannerInfo
 import com.strive.xwanandroid.common.bean.BaseEntity
 import com.strive.xwanandroid.common.bean.ListDataInfo
 import com.strive.xwanandroid.main.ui.WebActivity
 import com.strive.xwanandroid.main.ui.adapter.HomeAdapter
+import com.strive.xwanandroid.main.view.MyHomeVpViewHolder
+import com.zhpan.bannerview.BannerViewPager
+import com.zhpan.bannerview.constants.PageStyle
+import com.zhpan.bannerview.constants.TransformerStyle
+import com.zhpan.bannerview.holder.HolderCreator
+import com.zhpan.bannerview.utils.BannerUtils
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.home_header_view.*
 import kotlinx.coroutines.*
-import java.lang.Runnable
 
 /**
  *
@@ -37,6 +45,10 @@ class HomeFragment : BaseFragment() {
         HomeAdapter(articleInfos)
     }
 
+    private lateinit var bannerViewPager: BannerViewPager<BannerInfo, MyHomeVpViewHolder>
+
+
+
     /**
      * Home list async
      */
@@ -45,16 +57,35 @@ class HomeFragment : BaseFragment() {
     override fun bindLayout(): Int = R.layout.fragment_home
 
     override fun initView() {
-        for (index in 1..100) {
-            articleInfos.add(ArticleInfo("标题", "周杰伦", "http://www.baidu.com"))
-        }
+
         home_rv.run {
             layoutManager = LinearLayoutManager(activity)
             adapter = homeAdapter
         }
+
+        val headerView: View = layoutInflater.inflate(R.layout.home_header_view, null)
+        homeAdapter.addHeaderView(headerView)
+
+        bannerViewPager =
+            headerView.findViewById(R.id.banner_view)
+
+        bannerViewPager.setIndicatorVisibility(View.VISIBLE)
+            .setInterval(2000)
+            .setAutoPlay(true)
+            .setHolderCreator { MyHomeVpViewHolder() }
+            .setPageTransformerStyle(TransformerStyle.SCALE_IN)
+            .setPageStyle(PageStyle.NORMAL)
     }
 
     override fun initListener() {
+        bannerViewPager.setOnPageClickListener {
+             val mutableList = bannerViewPager.list
+            val bannerInfo = mutableList[it]
+            Intent(activity, WebActivity::class.java).run {
+                putExtra("url", bannerInfo?.url)
+                startActivity(this)
+            }
+        }
         homeAdapter.setOnItemClickListener { adapter, view, position ->
             run {
                 val item = homeAdapter.getItem(position)
@@ -91,14 +122,13 @@ class HomeFragment : BaseFragment() {
             val result = homeListAsync?.await()
             val datas = result?.data?.datas
             homeAdapter.setNewData(datas)
+
+            val bannerData = getBannerData()
+            val bannerDatas = bannerData.await()
+            bannerViewPager.create(bannerDatas.data)
         }
 
-        coroutineScope.launch {
-            withContext(Dispatchers.IO){
-                var homeBanner = HttpClient.retrofitService.getHomeBanner()
-                homeBanner
-            }
-        }
+
     }
 
     /**
@@ -120,8 +150,14 @@ class HomeFragment : BaseFragment() {
     private suspend fun getData() =
         withContext(Dispatchers.IO) {
             Log.i(TAG, "当前线程：${Thread.currentThread().name}")
-            val  homeList = HttpClient.retrofitService.getHomeData(0)
+            val homeList = HttpClient.retrofitService.getHomeData(0)
             homeList
+        }
+
+    private suspend fun getBannerData() =
+        withContext(Dispatchers.IO) {
+            val homeBanner = HttpClient.retrofitService.getHomeBanner()
+            homeBanner
         }
 
 }

@@ -8,7 +8,12 @@ package com.strive.xwanandroid.common.bean
  *
  */
 data class ArticleInfo(
+    val id:Int,
     var title:String,
     var author: String,
-    var link: String
+    var link: String,
+    val shareUser:String,
+    val chapterName:String,
+    val chapterId:Int,
+    val niceShareDate:String
 ) : BaseInfo()
