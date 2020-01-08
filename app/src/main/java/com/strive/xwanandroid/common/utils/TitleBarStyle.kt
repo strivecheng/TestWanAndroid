@@ -23,7 +23,7 @@ class TitleBarStyle(context: Context) : BaseTitleBarStyle(context) {
 
     override fun getRightBackground(): Drawable = leftBackground
 
-    override fun getBackground(): Drawable = ColorDrawable(0xFFF5F5F5.toInt())
+    override fun getBackground(): Drawable = ColorDrawable(0xFFFFFFFF.toInt())
 
     override fun getLeftBackground(): Drawable {
         return SelectorDrawable.Builder()

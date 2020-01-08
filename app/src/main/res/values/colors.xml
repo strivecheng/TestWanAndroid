@@ -6,8 +6,9 @@
 
     <color name="themeGreen">#55B737</color>
     <color name="bgWhite">#FFFFFF</color>
-    <color name="bgGray">#DDDFDD</color>
+    <color name="bgGray">#F3F3F3</color>
 
     <color name="fontGreen">#55B737</color>
     <color name="fontBlack">#0C0C0C</color>
+    <color name="fontGray">#6F6E6E</color>
 </resources>

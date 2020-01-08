@@ -128,7 +128,6 @@ class HomeFragment : BaseFragment() {
             bannerViewPager.create(bannerDatas.data)
         }
 
-
     }
 
     /**

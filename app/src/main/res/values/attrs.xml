@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--************ SJUILoading ***********-->
+    <declare-styleable name="SJUILoadingView">
+        <attr name="sj_ui_loading_view_size" format="dimension"/>
+        <attr name="android:color"/>
+    </declare-styleable>
+    <attr name="SJUILoadingStyle" format="reference"/>
+
+    <declare-styleable name="HorizonItemView">
+        <!-- 左边标题文案 -->
+        <attr name="leftTitleText" format="string" />
+        <!-- 左边标题文字大小 -->
+        <attr name="leftTextSize" format="dimension" />
+        <!-- 左侧图标图片 -->
+        <attr name="leftIconImg" format="reference" />
+        <!-- 是否显示左侧图标 -->
+        <attr name="canLeftImg" format="boolean" />
+        <!-- 是否显示右侧箭头按钮 -->
+        <attr name="canRightImg" format="boolean" />
+        <!-- 右边标题提示文案 -->
+        <attr name="rightTitleText" format="string" />
+        <!-- 右边标题文案 -->
+        <attr name="rightHintText" format="string" />
+        <!-- 右边标题文字大小 -->
+        <attr name="rightTextSize" format="dimension" />
+        <!-- 右边标题文字颜色 -->
+        <attr name="rightTextColor" format="color" />
+
+    </declare-styleable>
+</resources>

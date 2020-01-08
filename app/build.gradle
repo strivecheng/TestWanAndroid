@@ -50,18 +50,23 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
-
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    
     //统一标题栏
     implementation 'com.hjq:titlebar:6.0'
-
+    //万能适配器
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"
 
     //工具类
     implementation 'com.blankj:utilcode:1.24.7'
-
+    //banner
     implementation 'com.github.zhpanvip:BannerViewPager:2.6.4'
 
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+
+    //下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
 
 }
