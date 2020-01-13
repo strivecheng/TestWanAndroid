@@ -19,9 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_top_dp"
-        android:padding="@dimen/common_margin_left_dp"
         android:background="@color/bgWhite"
-        >
+        android:padding="@dimen/common_margin_left_dp">
 
 
         <ImageView
@@ -34,8 +33,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
             android:layout_toEndOf="@id/user_header_iv"
             android:orientation="vertical">
 
@@ -45,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/fontBlack"
                 android:textSize="@dimen/common_font_big_size"
-                tools:text="用户名" />
+                tools:text="用户名"
+                android:text="汪静"/>
 
             <TextView
                 android:id="@+id/email_tv"
@@ -67,19 +67,25 @@
     </RelativeLayout>
 
 
-
     <com.strive.xwanandroid.common.view.HorizonItemView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:leftTitleText="收藏"
-        android:layout_marginTop="@dimen/common_margin_top_dp"/>
+        app:leftTitleText="分享" />
 
     <com.strive.xwanandroid.common.view.HorizonItemView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_top_dp"
-        app:leftTitleText="设置"/>
+        app:leftTitleText="收藏" />
 
+    <com.strive.xwanandroid.common.view.HorizonItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_top_dp"
+        app:leftTitleText="设置" />
 
-
+    <com.strive.xwanandroid.common.view.HorizonItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftTitleText="傻子" />
 </LinearLayout>
