@@ -4,8 +4,7 @@ import com.strive.xwanandroid.common.bean.BannerInfo
 import com.strive.xwanandroid.common.bean.BaseEntity
 import com.strive.xwanandroid.common.bean.ListDataInfo
 import kotlinx.coroutines.Deferred
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  *
@@ -15,6 +14,11 @@ import retrofit2.http.Path
  *
  */
 interface ApiService {
+
+    @FormUrlEncoded
+    @POST("/user/login")
+    fun login(@Field("username") username: String, @Field("password") password: String): Deferred<BaseEntity<String>>
+
     @GET("/article/list/{pageNum}/json")
     fun getHomeData(@Path("pageNum") pageNum: Int): Deferred<BaseEntity<ListDataInfo>>
 

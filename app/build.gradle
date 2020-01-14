@@ -52,7 +52,7 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-    
+
     //统一标题栏
     implementation 'com.hjq:titlebar:6.0'
     //万能适配器
@@ -62,7 +62,6 @@ dependencies {
     implementation 'com.blankj:utilcode:1.24.7'
     //banner
     implementation 'com.github.zhpanvip:BannerViewPager:2.6.4'
-
 
 
     //下拉刷新

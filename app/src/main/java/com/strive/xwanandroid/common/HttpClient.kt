@@ -44,6 +44,7 @@ object HttpClient {
             .writeTimeout(
                 10L,
                 TimeUnit.SECONDS
+
             ).addInterceptor(
                 HttpLoggingInterceptor(
                     "wanAndroid",

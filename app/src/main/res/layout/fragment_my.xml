@@ -68,24 +68,23 @@
 
 
     <com.strive.xwanandroid.common.view.HorizonItemView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:leftTitleText="分享" />
-
-    <com.strive.xwanandroid.common.view.HorizonItemView
+        android:id="@+id/share_hiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_top_dp"
+        app:leftTitleText="分享" />
+
+    <com.strive.xwanandroid.common.view.HorizonItemView
+        android:id="@+id/favorite_hiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:leftTitleText="收藏" />
 
     <com.strive.xwanandroid.common.view.HorizonItemView
+        android:id="@+id/setting_hiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_top_dp"
         app:leftTitleText="设置" />
 
-    <com.strive.xwanandroid.common.view.HorizonItemView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:leftTitleText="傻子" />
 </LinearLayout>
