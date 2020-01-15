@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.ui.LoginActivity"></activity>
+        <activity android:name=".my.ui.MyFavoriteActivity"></activity>
+        <activity android:name=".my.ui.MyShareListActivity" />
+        <activity android:name=".main.ui.LoginActivity" />
         <activity android:name=".main.ui.WebActivity" />
         <activity android:name=".main.ui.MainActivity">
             <intent-filter>

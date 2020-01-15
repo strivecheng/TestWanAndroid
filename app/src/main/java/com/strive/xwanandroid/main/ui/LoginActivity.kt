@@ -1,14 +1,10 @@
 package com.strive.xwanandroid.main.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
+import com.blankj.utilcode.util.ToastUtils
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.HttpClient
 import com.strive.xwanandroid.common.base.BaseActivity
 import com.strive.xwanandroid.common.bean.BaseEntity
-import com.strive.xwanandroid.common.bean.ListDataInfo
-import com.strive.xwanandroid.main.ui.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.*
 
@@ -29,6 +25,8 @@ class LoginActivity : BaseActivity() {
             coroutineScope.launch {
                 var loginResult: Deferred<BaseEntity<String>>? = null
                 loginResult = login()
+                ToastUtils.showShort("登录成功")
+                finish()
             }
         }
     }

@@ -9,5 +9,5 @@ package com.strive.xwanandroid.common.global
  */
 
 object Constants {
-    const val BASE_URL = "http://wanandroid.com/"
+    const val BASE_URL = "https://wanandroid.com/"
 }

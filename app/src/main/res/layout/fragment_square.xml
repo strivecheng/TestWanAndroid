@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#00ff00"
+    android:background="@color/bgGray"
     android:orientation="vertical">
 
     <com.hjq.bar.TitleBar
@@ -12,4 +12,14 @@
         app:title="@string/square"
         app:backButton="false"
         />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/square_srlt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/square_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>
