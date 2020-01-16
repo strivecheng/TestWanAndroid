@@ -20,6 +20,7 @@ class SystemFirstMenuAdapter(data: MutableList<SystemInfo>?) :
     override fun convert(helper: BaseViewHolder, item: SystemInfo?) {
         item?.let {
             helper.setText(R.id.first_menu_tv, item.name)
+
             val secondMenuRv = helper.getView<RecyclerView>(R.id.second_menu_rv)
             secondMenuRv.adapter = SystemSecondMenuAdapter(item.children)
             secondMenuRv.layoutManager = GridLayoutManager(mContext,3)
