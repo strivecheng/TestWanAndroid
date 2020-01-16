@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/first_menu_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin_left_dp"
+        android:layout_marginTop="@dimen/common_margin_top_dp"
+        android:textColor="@color/fontGreen"
+        android:textSize="@dimen/common_font_normal_size"
+        tools:text="二级标题" />
+
+</LinearLayout>

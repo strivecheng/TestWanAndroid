@@ -27,7 +27,6 @@ interface ApiService {
     @GET("/user/login")
     fun logout(): Deferred<BaseEntity<String>>
 
-
     @GET("/article/list/{pageNum}/json")
     fun getHomeData(@Path("pageNum") pageNum: Int): Deferred<BaseEntity<ListDataInfo>>
 
@@ -38,7 +37,7 @@ interface ApiService {
     fun getSquareList(@Path("pageNum") pageNum: Int): Deferred<BaseEntity<ListDataInfo>>
 
     @GET("/tree/json")
-    fun getSystemData(): Deferred<BaseEntity<SystemInfo>>
+    fun getSystemData(): Deferred<BaseEntity<MutableList<SystemInfo>>>
 
     @GET("/article/list/{pageNum}/json")
     fun getSystemChildArtical(@Path("pageNum") pageNum: Int, @Query("cid") cid: String): Deferred<BaseEntity<ListDataInfo>>

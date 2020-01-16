@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff11"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
     <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_bar_height"
-        app:title="@string/system"
         app:backButton="false"
-        />
+        app:title="@string/system" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/system_srlt"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/system_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/system_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

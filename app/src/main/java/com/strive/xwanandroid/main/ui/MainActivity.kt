@@ -25,6 +25,7 @@ class MainActivity : BaseActivity() {
         homeFragment = HomeFragment()
         homeFragment?.let {
             fragmentManager.beginTransaction().add(R.id.fl, it, HomeFragment.TAG).commit()
+            currentFragment = it
         }
 
     }
@@ -34,12 +35,12 @@ class MainActivity : BaseActivity() {
             setOnNavigationItemSelectedListener {
                 it.isChecked = true
                 val beginTransaction = fragmentManager.beginTransaction()
-
+                currentFragment?.let { fragment ->
+                    beginTransaction.hide(fragment)
+                }
                 when (it.itemId) {
                     R.id.home -> {
-                        currentFragment?.let { fragment ->
-                            beginTransaction.hide(fragment)
-                        }
+
                         if (homeFragment == null) {
                             HomeFragment()
                                 .let { fragment ->
@@ -60,9 +61,6 @@ class MainActivity : BaseActivity() {
                         true
                     }
                     R.id.square -> {
-                        currentFragment?.let { fragment ->
-                            beginTransaction.hide(fragment)
-                        }
                         if (squareFragment == null) {
                             SquareFragment()
                                 .let { fragment ->
@@ -83,9 +81,6 @@ class MainActivity : BaseActivity() {
                         true
                     }
                     R.id.system -> {
-                        currentFragment?.let { fragment ->
-                            beginTransaction.hide(fragment)
-                        }
                         if (systemFragment == null) {
                             SystemFragment()
                                 .let { fragment ->
@@ -107,9 +102,6 @@ class MainActivity : BaseActivity() {
                         true
                     }
                     R.id.my -> {
-                        currentFragment?.let { fragment ->
-                            beginTransaction.hide(fragment)
-                        }
                         if (myFragment == null) {
                             MyFragment()
                                 .let { fragment ->
