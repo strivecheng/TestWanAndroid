@@ -2,7 +2,7 @@ package com.strive.xwanandroid.main.ui.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.BaseViewHolder
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.bean.SystemInfo
 

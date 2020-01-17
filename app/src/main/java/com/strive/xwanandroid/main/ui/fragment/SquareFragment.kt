@@ -2,7 +2,7 @@ package com.strive.xwanandroid.main.ui.fragment
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.strive.xwanandroid.R
-import com.strive.xwanandroid.common.HttpClient
+import com.strive.xwanandroid.common.http.HttpClient
 import com.strive.xwanandroid.common.base.BaseFragment
 import com.strive.xwanandroid.common.bean.ArticleInfo
 import com.strive.xwanandroid.main.ui.adapter.SquareAdapter

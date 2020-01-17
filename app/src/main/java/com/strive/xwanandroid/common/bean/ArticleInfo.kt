@@ -15,5 +15,6 @@ data class ArticleInfo(
     val shareUser:String,
     val chapterName:String,
     val chapterId:Int,
-    val niceShareDate:String
+    val niceShareDate:String,
+    var isFavorite:Boolean
 ) : BaseInfo()

@@ -4,24 +4,24 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blankj.utilcode.util.ToastUtils
 import com.strive.xwanandroid.R
-import com.strive.xwanandroid.common.HttpClient
+import com.strive.xwanandroid.common.http.HttpClient
 import com.strive.xwanandroid.common.base.BaseFragment
 import com.strive.xwanandroid.common.bean.ArticleInfo
 import com.strive.xwanandroid.common.bean.BannerInfo
 import com.strive.xwanandroid.common.bean.BaseEntity
 import com.strive.xwanandroid.common.bean.ListDataInfo
+import com.strive.xwanandroid.common.global.GlobalData
 import com.strive.xwanandroid.main.ui.WebActivity
 import com.strive.xwanandroid.main.ui.adapter.HomeAdapter
 import com.strive.xwanandroid.main.view.MyHomeVpViewHolder
 import com.zhpan.bannerview.BannerViewPager
 import com.zhpan.bannerview.constants.PageStyle
 import com.zhpan.bannerview.constants.TransformerStyle
-import com.zhpan.bannerview.holder.HolderCreator
-import com.zhpan.bannerview.utils.BannerUtils
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.home_header_view.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.flow
 
 /**
  *
@@ -48,7 +48,6 @@ class HomeFragment : BaseFragment() {
     private lateinit var bannerViewPager: BannerViewPager<BannerInfo, MyHomeVpViewHolder>
 
 
-
     /**
      * Home list async
      */
@@ -65,7 +64,7 @@ class HomeFragment : BaseFragment() {
 
         val headerView: View = layoutInflater.inflate(R.layout.home_header_view, null)
         homeAdapter.addHeaderView(headerView)
-
+        homeAdapter.addChildClickViewIds(R.id.favorite_iv)
         bannerViewPager =
             headerView.findViewById(R.id.banner_view)
 
@@ -79,7 +78,7 @@ class HomeFragment : BaseFragment() {
 
     override fun initListener() {
         bannerViewPager.setOnPageClickListener {
-             val mutableList = bannerViewPager.list
+            val mutableList = bannerViewPager.list
             val bannerInfo = mutableList[it]
             Intent(activity, WebActivity::class.java).run {
                 putExtra("url", bannerInfo?.url)
@@ -95,6 +94,38 @@ class HomeFragment : BaseFragment() {
                 }
             }
         }
+
+        homeAdapter.setOnItemChildClickListener { adapter, view, position ->
+            run {
+                when (view.id) {
+                    R.id.favorite_iv -> {
+                        val articleInfo = homeAdapter.getItem(position)
+
+                        val coroutineScope = CoroutineScope(Dispatchers.IO)
+                        coroutineScope.launch {
+                            val string = articleInfo?.let {
+                                val deferred =
+                                    HttpClient.retrofitService.favoriteInsideArticle(articleInfo.id.toString())
+
+                                val await = deferred.await()
+                                await.data
+                            }
+                            withContext(Dispatchers.Main) {
+                                ToastUtils.showShort("收藏成功")
+                            }
+                        }
+                    }
+                    else -> {
+
+                    }
+                }
+            }
+        }
+
+        home_srlt.setOnRefreshListener{
+            initData()
+        }
+
     }
 
     override fun initData() {
@@ -121,6 +152,18 @@ class HomeFragment : BaseFragment() {
             homeListAsync = getData()
             val result = homeListAsync?.await()
             val datas = result?.data?.datas
+            datas?.let {
+                for (article in datas) {
+                    val collectIds = GlobalData.userInfo?.collectIds
+                    collectIds?.let {
+                        for (id in collectIds) {
+                            if (article.id == id) {
+                                article.isFavorite = true
+                            }
+                        }
+                    }
+                }
+            }
             homeAdapter.setNewData(datas)
 
             val bannerData = getBannerData()
@@ -158,5 +201,4 @@ class HomeFragment : BaseFragment() {
             val homeBanner = HttpClient.retrofitService.getHomeBanner()
             homeBanner
         }
-
 }

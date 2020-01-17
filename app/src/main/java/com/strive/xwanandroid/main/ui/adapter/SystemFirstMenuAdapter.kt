@@ -1,10 +1,9 @@
 package com.strive.xwanandroid.main.ui.adapter
 
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.BaseViewHolder
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.bean.SystemInfo
 
@@ -23,7 +22,7 @@ class SystemFirstMenuAdapter(data: MutableList<SystemInfo>?) :
 
             val secondMenuRv = helper.getView<RecyclerView>(R.id.second_menu_rv)
             secondMenuRv.adapter = SystemSecondMenuAdapter(item.children)
-            secondMenuRv.layoutManager = GridLayoutManager(mContext,3)
+            secondMenuRv.layoutManager = GridLayoutManager(context,3)
         }
 
     }

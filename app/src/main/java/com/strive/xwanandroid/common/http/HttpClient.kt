@@ -1,9 +1,10 @@
-package com.strive.xwanandroid.common
+package com.strive.xwanandroid.common.http
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.strive.xwanandroid.common.global.Constants
-import com.strive.xwanandroid.common.http.ApiService
+import com.strive.xwanandroid.common.utils.AddCookiesInterceptor
 import com.strive.xwanandroid.common.utils.HttpLoggingInterceptor
+import com.strive.xwanandroid.common.utils.SaveCookiesInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -45,7 +46,9 @@ object HttpClient {
                 10L,
                 TimeUnit.SECONDS
 
-            ).addInterceptor(
+            ).addInterceptor(SaveCookiesInterceptor())
+            .addInterceptor(AddCookiesInterceptor())
+            .addInterceptor(
                 HttpLoggingInterceptor(
                     "wanAndroid",
                     true

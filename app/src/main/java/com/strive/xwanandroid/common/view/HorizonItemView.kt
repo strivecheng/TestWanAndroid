@@ -66,5 +66,6 @@ class HorizonItemView @JvmOverloads constructor(
 
     private fun setupView() {
         left_title_tv.text = leftTitleText
+        left_icon_iv.setImageResource(leftIconImg)
     }
 }

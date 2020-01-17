@@ -12,6 +12,7 @@
         app:title="@string/home" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/home_srlt"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

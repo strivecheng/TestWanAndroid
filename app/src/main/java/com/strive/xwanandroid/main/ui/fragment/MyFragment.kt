@@ -1,5 +1,6 @@
 package com.strive.xwanandroid.main.ui.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.view.View
 import com.strive.xwanandroid.R
@@ -23,19 +24,26 @@ class MyFragment : BaseFragment() {
     override fun bindLayout(): Int = R.layout.fragment_my
 
     override fun initView() {
-
+        user_name_tv.text = GlobalData.userInfo?.publicName
     }
 
     override fun initListener() {
         favorite_hiv.setOnClickListener {
             if (!GlobalData.isLogin) {
                 val intent = Intent(activity,LoginActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent,0)
             }
         }
 
     }
 
     override fun initData() {
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            initView()
+        }
     }
 }
