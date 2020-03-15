@@ -16,4 +16,6 @@ class MyApplication : Application(){
         super.onCreate()
         TitleBar.initStyle(TitleBarStyle(this))
     }
+
+    /*大佬你好*/
 }
