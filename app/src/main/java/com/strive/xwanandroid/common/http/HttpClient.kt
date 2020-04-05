@@ -1,7 +1,7 @@
 package com.strive.xwanandroid.common.http
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.strive.xwanandroid.common.global.Constants
+import com.strive.xwanandroid.common.global.BASE_URL
 import com.strive.xwanandroid.common.utils.AddCookiesInterceptor
 import com.strive.xwanandroid.common.utils.HttpLoggingInterceptor
 import com.strive.xwanandroid.common.utils.SaveCookiesInterceptor
@@ -72,7 +72,7 @@ class RetrofitBuild(
     coroutineCallAdapterFactory: CoroutineCallAdapterFactory
 ) {
     val retrofit: Retrofit = Retrofit.Builder().apply {
-        baseUrl(Constants.BASE_URL)
+        baseUrl(BASE_URL)
         client(client)
         addConverterFactory(gsonFactory)
         addCallAdapterFactory(coroutineCallAdapterFactory)

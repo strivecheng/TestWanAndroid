@@ -11,4 +11,8 @@
     <color name="fontGreen">#55B737</color>
     <color name="fontBlack">#0C0C0C</color>
     <color name="fontGray">#6F6E6E</color>
+
+    <color name="switcher_on_color">#48ea8b</color>
+    <color name="switcher_off_color">#ff4651</color>
+    <color name="switcher_icon_color">@android:color/white</color>
 </resources>

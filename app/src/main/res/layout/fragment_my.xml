@@ -44,8 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/fontBlack"
                 android:textSize="@dimen/common_font_big_size"
-                tools:text="用户名"
-                />
+                tools:text="用户名" />
 
             <TextView
                 android:id="@+id/email_tv"
@@ -67,7 +66,6 @@
     </RelativeLayout>
 
 
-
     <com.strive.xwanandroid.common.view.HorizonItemView
         android:id="@+id/favorite_hiv"
         android:layout_width="match_parent"
@@ -84,7 +82,6 @@
         app:leftTitleText="分享" />
 
 
-
     <com.strive.xwanandroid.common.view.HorizonItemView
         android:id="@+id/setting_hiv"
         android:layout_width="match_parent"
@@ -93,4 +90,7 @@
         app:leftIconImg="@mipmap/setting_icon"
         app:leftTitleText="设置" />
 
+    <com.strive.xwanandroid.common.view.MotionSwitcher
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

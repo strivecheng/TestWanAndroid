@@ -1,11 +1,13 @@
 package com.strive.xwanandroid.main.ui.fragment
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.view.View
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.base.BaseFragment
 import com.strive.xwanandroid.common.global.GlobalData
+import com.strive.xwanandroid.common.utils.PermissionUtils
 import com.strive.xwanandroid.main.ui.LoginActivity
 import kotlinx.android.synthetic.main.fragment_my.*
 
@@ -24,6 +26,15 @@ class MyFragment : BaseFragment() {
     override fun bindLayout(): Int = R.layout.fragment_my
 
     override fun initView() {
+        if (!PermissionUtils.hasPermission(context!!, Manifest.permission.CAMERA)) {
+            val hasAlwaysDeniedPermission =
+                PermissionUtils.hasAlwaysDeniedPermission(this, Manifest.permission.CAMERA)
+            if (hasAlwaysDeniedPermission){
+                PermissionUtils.requestPermission(this, Manifest.permission.CAMERA,100)
+            }else{
+                PermissionUtils.requestPermission(this, Manifest.permission.CAMERA,100)
+            }
+        }
         user_name_tv.text = GlobalData.userInfo?.publicName
     }
 

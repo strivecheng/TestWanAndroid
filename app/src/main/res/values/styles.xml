@@ -16,4 +16,14 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="BaseSwitcher">
+        <item name="switcher_width">@dimen/switcher_width</item>
+        <item name="switcher_height">@dimen/switcher_height</item>
+        <item name="switcher_on_color">@color/switcher_on_color</item>
+        <item name="switcher_off_color">@color/switcher_off_color</item>
+        <item name="switcher_icon_color">@color/switcher_icon_color</item>
+        <item name="elevation">@dimen/switcher_elevation</item>
+    </style>
+
+    <style name="MotionSwitcher" parent="BaseSwitcher"/>
 </resources>

@@ -30,7 +30,7 @@ class LoginActivity : BaseActivity() {
                 loginResult = login()
                 val await = loginResult.await()
                 GlobalData.userInfo = await.data
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     ToastUtils.showShort("登录成功")
                     setResult(Activity.RESULT_OK)
                     finish()
@@ -43,7 +43,7 @@ class LoginActivity : BaseActivity() {
     override fun initData() {
     }
 
-    suspend fun login() =
+    private suspend fun login() =
         withContext(Dispatchers.IO) {
             val string = HttpClient.retrofitService.login(
                 account_et.text.toString(),

@@ -29,4 +29,14 @@
         <attr name="rightTextColor" format="color" />
 
     </declare-styleable>
+
+    <declare-styleable name="MotionSwitcher">
+        <attr name="elevation" />
+        <attr name="switcher_width" format="dimension" />
+        <attr name="switcher_height" format="dimension" />
+        <attr name="android:checked" format="boolean" />
+        <attr name="switcher_on_color" format="color" />
+        <attr name="switcher_off_color" format="color" />
+        <attr name="switcher_icon_color" format="color" />
+    </declare-styleable>
 </resources>

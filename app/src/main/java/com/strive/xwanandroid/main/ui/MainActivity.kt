@@ -1,8 +1,12 @@
 package com.strive.xwanandroid.main.ui
 
+import android.Manifest
+import androidx.navigation.Navigation
+import com.blankj.utilcode.constant.PermissionConstants
 import com.strive.xwanandroid.R
 import com.strive.xwanandroid.common.base.BaseActivity
 import com.strive.xwanandroid.common.base.BaseFragment
+import com.strive.xwanandroid.common.utils.PermissionUtils
 import com.strive.xwanandroid.main.ui.fragment.HomeFragment
 import com.strive.xwanandroid.main.ui.fragment.MyFragment
 import com.strive.xwanandroid.main.ui.fragment.SquareFragment
@@ -28,6 +32,7 @@ class MainActivity : BaseActivity() {
             currentFragment = it
         }
 
+//        Navigation.findNavController(this,)
     }
 
     override fun initListener() {

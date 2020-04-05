@@ -12,4 +12,8 @@
     <dimen name="common_font_normal_size">16sp</dimen>
     <dimen name="common_font_big_size">18sp</dimen>
     <dimen name="common_font_size_20">20sp</dimen>
+
+    <dimen name="switcher_elevation">4dp</dimen>
+    <dimen name="switcher_height">26dp</dimen>
+    <dimen name="switcher_width">46dp</dimen>
 </resources>

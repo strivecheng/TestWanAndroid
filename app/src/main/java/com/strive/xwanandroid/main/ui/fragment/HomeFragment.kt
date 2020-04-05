@@ -21,14 +21,12 @@ import com.zhpan.bannerview.constants.PageStyle
 import com.zhpan.bannerview.constants.TransformerStyle
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.flow
 
 /**
  *
  * @description 首页
  * @date 2020-01-03
  * @author xingcc
- *
  *
  *
  *
